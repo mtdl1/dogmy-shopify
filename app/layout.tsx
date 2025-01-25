@@ -6,7 +6,7 @@ import { getCart } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
-// import { Toaster } from 'sonner';
+import { Toaster } from 'sonner';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -48,7 +48,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Navbar />
           <main>
             {children}
-            {/* <Toaster closeButton /> */}
+            <Toaster closeButton />
             <WelcomeToast />
           </main>
         </CartProvider>

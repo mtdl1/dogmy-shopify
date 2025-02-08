@@ -5,16 +5,7 @@ import Link from 'next/link';
 
 export default function ProductShowcase({ products }: { products: Product[] }) {
   return (
-    <Grid className="container mx-auto max-w-screen-2xl gap-6 px-4 py-4 grid-cols-1 md:grid-cols-4">
-
-      {/* mostre em texto todas as informações recebidas na variavel products
-      {products.map((product) => (
-        <Grid.Item key={product.handle} className="border p-4">
-          <pre>{JSON.stringify(product, null, 2)}</pre>
-        </Grid.Item>
-      ))} */}
-
-      {/* mostre as imagens dos produtos */}
+    <Grid className="container mx-auto max-w-screen-2xl gap-6 px-4 py-4 mt-4 grid-cols-1 md:grid-cols-4">
       {products.map((product) => (
         <Grid.Item key={product.handle} className="border rounded-lg p-4">
           <Link
@@ -22,25 +13,19 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
             href={`/product/${product.handle}`}
             prefetch
           >
-            <Image src={product.featuredImage?.url} alt={product.title} width={415} height={415} />
-            <h2>{product.priceRange.maxVariantPrice.amount}</h2>
-
-            {/* <GridTileImage
-              alt={product.title}
-              label={{
-                title: product.title,
-                amount: product.priceRange.maxVariantPrice.amount,
-                currencyCode: product.priceRange.maxVariantPrice.currencyCode
-              }}
-              src={product.featuredImage?.url}
-              fill
-              sizes="(min-width: 1024px) 25vw, 100vw"
-            /> */}
-
+            <span className='absolute left-2 top-2 z-10 bg-yellow-300 p-1 px-2 rounded font-semibold text-xs'>
+              {Math.round((1 - parseFloat(product.variants[0]?.price.amount || '0') / parseFloat(product.variants[0]?.compareAtPrice.amount || '0')) * 100)}% OFF
+            </span>
+            <span className='absolute right-2 top-2 z-10 bg-green-500 p-1 px-2 rounded font-semibold text-xs text-white block w-fit'>FRETE GRATIS</span>
+            <Image className='rounded-xl-' src={product.featuredImage?.url} alt={product.title} width={415} height={415} />
+            <h2 className='mt-4 text-lg font-bold text-gray-900 min-h-14 flex items-center justify-start'>{product.title}</h2>
+            <h2 className='text-sm text-muted-foreground line-through text-gray-600'><s>R$ {product.variants[0]?.compareAtPrice.amount}</s></h2>
+            <p className='text-gray-600'>em <strong className='text-gray-950'>até 6x</strong> de</p>
+            <h3 className='text-4xl font-semibold text-gray-950'>R$ {product.variants[0] && product.variants[0].price.amount ? (parseFloat(product.variants[0].price.amount) / 6).toFixed(2) : 'N/A'}</h3>
+            <h3 className='text-lg font-semibold text-gray-600'>Ou <strong className='text-gray-950'>R$ {product.variants[0]?.price.amount}</strong> á vista</h3>
           </Link>
-          {/* Exemplo de botão de compra */}
-          <button className="mt-2 w-full rounded bg-blue-500 py-2 text-white hover:bg-blue-600">
-            Comprar
+          <button className="mt-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold uppercase py-2 px-4 rounded">
+            Compre Agora
           </button>
 
         </Grid.Item>

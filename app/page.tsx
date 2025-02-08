@@ -2,13 +2,16 @@ import Banner from 'components/banner';
 import Beneficios from 'components/beneficios';
 import { getCollectionProducts } from 'lib/shopify';
 // import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
+// import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import ProductShowcase from 'components/layout/product-showcase';
+import BannerKit from 'components/banner-kit';
+import BannerBeneficios from 'components/banner-beneficios';
 
 
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+  title: 'Dogmy - O Stick que seu amigo merece!',
+  description: 'Melhores multivitamínicos para o seu melhor amigo!',
   openGraph: {
     type: 'website'
   }
@@ -20,8 +23,10 @@ export default async function HomePage() {
     <>
       <Banner />
       <Beneficios />
+      <BannerKit />
       <ProductShowcase products={products}/>
-      <ThreeItemGrid />
+      <BannerBeneficios />
+      {/* <ThreeItemGrid /> */}
       {/* <Carousel /> */}
       <Footer />
     </>

@@ -2,7 +2,7 @@ import { ShieldCheckIcon, TruckIcon } from '@heroicons/react/24/outline';
 
 export default function Beneficios() {
   return (
-    <section className="container mx-auto max-w-screen-2xl grid grid-cols-3 gap-8 py-12 px-4">
+    <section className="container mx-auto max-w-screen-2xl grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-4">
       <div className="border border-orange-400 rounded-lg p-4 flex items-start justify-center flex-wrap gap-2">
         <TruckIcon className="h-8 w-full" />
         <div>

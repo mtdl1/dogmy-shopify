@@ -8,7 +8,14 @@ import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
 export async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
+  let menu: Menu[] = [];
+
+  try {
+    menu = await getMenu('next-js-frontend-header-menu');
+    console.log('Menu data:', menu);
+  } catch (error) {
+    console.error('Error fetching menu:', error);
+  }
 
   return (
     <nav className="relative m-auto flex items-center justify-between p-4 lg:px-6">
@@ -24,11 +31,7 @@ export async function Navbar() {
             prefetch={true}
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
-            {/* <LogoSquare /> */}
             <Image src="/logo_100x40.png" alt="Logo" width={100} height={40} />
-            {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div> */}
           </Link>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">

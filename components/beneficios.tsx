@@ -14,7 +14,7 @@ export default function Beneficios() {
         <ShieldCheckIcon className="h-8 w-full" />
         <div>
           <h2 className="text-xl text-center font-semibold">5% off no Pix</h2>
-          <p className="text-base text-center">Economize ainda mais</p>
+          <p className="text-base text-center">Economize ainda mais!</p>
         </div>
       </div>
       <div className="border border-orange-400 rounded-lg p-4 flex items-start justify-center flex-wrap gap-2">

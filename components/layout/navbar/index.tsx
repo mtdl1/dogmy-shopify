@@ -11,7 +11,7 @@ export async function Navbar() {
   let menu: Menu[] = [];
 
   try {
-    menu = await getMenu('next-js-frontend-header-menu');
+    menu = await getMenu('main-menu');
     console.log('Menu data:', menu);
   } catch (error) {
     console.error('Error fetching menu:', error);

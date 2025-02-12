@@ -41,8 +41,6 @@ export async function Navbar() {
           >
             <Image src="/logo_100x40.png" alt="Logo" width={100} height={40} />
           </Link>
-          {/* exibir toda a variavel menu em um p */}
-          <p>{JSON.stringify(menu)}</p>
           <div className="menu">
             {menu.length ? (
               <ul className="hidden gap-6 text-sm md:flex md:items-center">

@@ -62,11 +62,10 @@ export default async function Footer() {
         {/* newsletter */}
         <div>
           <h3 className='text-lg font-bold text-gray-900'>Newsletter</h3>
-          <p className='text-gray-900'>Rece
-          ba novidades e promoções por e-mail:</p>
-          <form className='flex gap-2'>
+          <p className='text-gray-900'>Receba novidades e promoções por e-mail:</p>
+          <form className='flex gap-2 mt-2'>
             <input type='email' placeholder='Seu e-mail' className='border border-gray-300 rounded p-1' />
-            <button type='submit' className='bg-black text-white rounded p-1'>Inscrever-se</button>
+            <button type='submit' className='bg-black text-white rounded p-1 font-medium px-2'>Inscrever-se</button>
           </form>
         </ div>
       </div>

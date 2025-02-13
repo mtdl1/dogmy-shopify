@@ -23,11 +23,10 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
             <p className='text-gray-600'>em <strong className='text-gray-950'>até 6x</strong> de</p>
             <h3 className='text-4xl font-semibold text-gray-950'>R$ {product.variants[0] && product.variants[0].price.amount ? (parseFloat(product.variants[0].price.amount) / 6).toFixed(2) : 'N/A'}</h3>
             <h3 className='text-lg font-semibold text-gray-600'>Ou <strong className='text-gray-950'>R$ {product.variants[0]?.price.amount}</strong> á vista</h3>
-          </Link>
-          <button className="mt-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold uppercase py-2 px-4 rounded">
-            Compre Agora
-          </button>
 
+            <p className='mt-2 w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold uppercase py-2 px-4 rounded'>Compre agora</p>
+
+          </Link>
         </Grid.Item>
       ))}
     </Grid>

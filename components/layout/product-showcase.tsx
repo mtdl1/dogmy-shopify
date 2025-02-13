@@ -18,7 +18,7 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
             </span>
             <span className='absolute right-2 top-2 z-10 bg-green-500 p-1 px-2 rounded font-semibold text-xs text-white block w-fit'>FRETE GRATIS</span>
             <Image className='rounded-xl-' src={product.featuredImage?.url} alt={product.title} width={415} height={415} />
-            <h2 className='mt-4 text-lg font-bold text-gray-900 min-h-14 flex items-center justify-start'>{product.title}</h2>
+            <h2 className='mt-4 text-xl font-bold text-gray-900 min-h-14 flex items-center justify-start'>{product.title}</h2>
             <h2 className='text-sm text-muted-foreground line-through text-gray-600'><s>R$ {product.variants[0]?.compareAtPrice.amount}</s></h2>
             <p className='text-gray-600'>em <strong className='text-gray-950'>até 6x</strong> de</p>
             <h3 className='text-4xl font-semibold text-gray-950'>R$ {product.variants[0] && product.variants[0].price.amount ? (parseFloat(product.variants[0].price.amount) / 6).toFixed(2) : 'N/A'}</h3>

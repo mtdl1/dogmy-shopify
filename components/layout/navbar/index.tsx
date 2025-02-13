@@ -12,17 +12,8 @@ export async function Navbar() {
 
   try {
     menu = await getMenu('main-menu');
-    console.log('Menu data:', menu);
   } catch (error) {
     console.error('Error fetching menu:', error);
-  }
-
-  if (menu.length === 0) {
-    console.warn('Menu is empty or not loaded');
-  }
-
-  if (menu.length > 0) {
-    console.log('Menu data:', menu);
   }
 
   return (
@@ -33,7 +24,7 @@ export async function Navbar() {
         </Suspense>
       </div>
       <div className="flex max-w-screen-2xl m-auto w-full items-center bewtween md:justify-between md:items-center">
-        <div className="flex w-full md:w-1/3">
+        <div className="flex w-full items-center md:w-1/3">
           <Link
             href="/"
             prefetch={true}
@@ -49,7 +40,7 @@ export async function Navbar() {
                     <Link
                       href={item.path}
                       prefetch={true}
-                      className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                      className="text-gray-900 font-medium underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
                     >
                       {item.title}
                     </Link>
@@ -61,12 +52,12 @@ export async function Navbar() {
             )}
           </div>
         </div>
-        <div className="hidden justify-center md:flex md:w-1/4">
-          <Suspense fallback={<SearchSkeleton />}>
-            <Search />
-          </Suspense>
-        </div>
-        <div className="flex justify-end md:w-1/3">
+        <div className="flex gap-5 items-center justify-end md:w-1/3">
+          <div className='hidden md:flex'>
+            <Suspense fallback={<SearchSkeleton />}>
+              <Search />
+            </Suspense>
+          </div>
           <CartModal />
         </div>
       </div>

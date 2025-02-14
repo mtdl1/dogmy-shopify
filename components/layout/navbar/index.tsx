@@ -11,7 +11,7 @@ export async function Navbar() {
   let menu: Menu[] = [];
 
   try {
-    menu = await getMenu('main-menu');
+    menu = await getMenu('menu-do-cabe-alho');
   } catch (error) {
     console.error('Error fetching menu:', error);
   }

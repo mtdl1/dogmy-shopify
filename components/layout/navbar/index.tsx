@@ -8,13 +8,7 @@ import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
 export async function Navbar() {
-  let menu: Menu[] = [];
-
-  try {
-    menu = await getMenu('main-menu');
-  } catch (error) {
-    console.error('Error fetching menu:', error);
-  }
+  const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
     <nav className="relative m-auto flex items-center justify-between p-4 lg:px-6">
@@ -33,23 +27,21 @@ export async function Navbar() {
             <Image src="/logo_100x40.png" alt="Logo" width={100} height={40} />
           </Link>
           <div className="menu">
-            {menu.length ? (
-              <ul className="hidden gap-6 text-sm md:flex md:items-center">
-                {menu.map((item: Menu) => (
-                  <li key={item.title}>
-                    <Link
-                      href={item.path}
-                      prefetch={true}
-                      className="text-gray-900 font-medium underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-red-500">Menu not available</p>
-            )}
+          {menu.length ? (
+            <ul className="hidden gap-6 text-sm md:flex md:items-center">
+              {menu.map((item: Menu) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.path}
+                    prefetch={true}
+                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           </div>
         </div>
         <div className="flex gap-5 items-center justify-end md:w-1/3">

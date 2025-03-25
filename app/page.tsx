@@ -7,7 +7,6 @@ import Footer from 'components/layout/footer';
 import ProductShowcase from 'components/layout/product-showcase';
 import { getCollectionProducts } from 'lib/shopify';
 
-
 export const metadata = {
   title: 'Dogmy - O Stick que seu amigo merece!',
   description: 'Melhores multivitamínicos para o seu melhor amigo!',

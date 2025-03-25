@@ -113,8 +113,7 @@ const config: Config = {
           values: theme('transitionDelay')
         }
       );
-    }),
-      require("tailwindcss-animate")
+    })
 ]
 };
 

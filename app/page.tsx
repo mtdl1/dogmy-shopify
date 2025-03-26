@@ -1,6 +1,7 @@
 import Banner from 'components/banner';
 import BannerBeneficios from 'components/banner-beneficios';
 import BannerKit from 'components/banner-kit';
+import BannerOferta from 'components/banner-oferta';
 import Beneficios from 'components/beneficios';
 import Depoimentos from 'components/depoimentos';
 import Footer from 'components/layout/footer';
@@ -22,6 +23,7 @@ export default async function HomePage() {
     <>
       <Banner />
       <Beneficios />
+      <BannerOferta />
       <h2 className='text-3xl text-gray-800 font-bold text-center py-4' >Os Melhores Kits</h2>
       <ProductShowcase products={productsKits}/>
       <BannerKit />

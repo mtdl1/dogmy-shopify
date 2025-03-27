@@ -4,6 +4,7 @@ import BannerKit from 'components/banner-kit';
 import BannerOferta from 'components/banner-oferta';
 import Beneficios from 'components/beneficios';
 import Depoimentos from 'components/depoimentos';
+import DiscountPopup from 'components/discount-popup';
 import Footer from 'components/layout/footer';
 import ProductShowcase from 'components/layout/product-showcase';
 import { getCollectionProducts } from 'lib/shopify';
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <ProductShowcase products={products}/>
       <BannerBeneficios />
       <Depoimentos />
+      <DiscountPopup />
       <Footer />
     </>
   );

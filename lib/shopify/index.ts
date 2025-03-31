@@ -10,6 +10,7 @@ import {
   editCartItemsMutation,
   removeFromCartMutation
 } from './mutations/cart';
+import { customerCreateMutation } from './mutations/customer';
 import { getCartQuery } from './queries/cart';
 import {
   getCollectionProductsQuery,
@@ -452,4 +453,44 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   }
 
   return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
+}
+
+export async function createCustomer({
+  email,
+  phone,
+  password = "defaultPassword" // Add a default password
+}: {
+  email: string;
+  phone: string;
+  password?: string; // Make password optional
+}): Promise<{ id: string; email: string; phone: string } | null> {
+  try {
+    const res = await shopifyFetch<{
+      data: {
+        customerCreate: {
+          customer: { id: string; email: string; phone: string };
+          userErrors: { field: string; message: string }[];
+        };
+      };
+    }>({
+      query: customerCreateMutation,
+      variables: {
+        input: { email, phone, password } // Include password in the input
+      }
+    });
+
+    console.log("Shopify API response:", res.body);
+
+    const { customer, userErrors } = res.body.data.customerCreate;
+
+    if (userErrors.length > 0) {
+      console.error("Shopify user errors:", userErrors);
+      return null;
+    }
+
+    return customer;
+  } catch (error) {
+    console.error("Error in createCustomer:", error);
+    throw error;
+  }
 }

@@ -472,6 +472,13 @@ export async function createCustomer({
           userErrors: { field: string; message: string }[];
         };
       };
+      variables: {
+        input: {
+          email: string;
+          phone: string;
+          password: string;
+        };
+      };
     }>({
       query: customerCreateMutation,
       variables: {
@@ -491,6 +498,6 @@ export async function createCustomer({
     return customer;
   } catch (error) {
     console.error("Error in createCustomer:", error);
-    throw error;
+    return null;
   }
 }

@@ -184,7 +184,7 @@ export default function CartModal() {
                       />
                     </div> */}
                     <div className='mb-5 bg-red-600 text-white p-2 rounded-md'>
-                      <p>Restam apenas <strong>10 unidades disponíveis</strong> com esse disconto</p>
+                      <p>Restam apenas <strong>10 unidades disponíveis</strong> com esse desconto</p>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
                       <p>Frete</p>

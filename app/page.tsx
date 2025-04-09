@@ -5,7 +5,6 @@ import BannerOferta from 'components/banner-oferta';
 import Beneficios from 'components/beneficios';
 import CreateCustomerPopup from 'components/create-customer-popup';
 import Depoimentos from 'components/depoimentos';
-import DiscountPopup from 'components/discount-popup';
 import Footer from 'components/layout/footer';
 import ProductShowcase from 'components/layout/product-showcase';
 import { getCollectionProducts } from 'lib/shopify';
@@ -21,10 +20,12 @@ export const metadata = {
 export default async function HomePage() {
   const products = await getCollectionProducts({ collection: 'hidden-homepage-featured-items' });
   const productsKits = await getCollectionProducts({ collection: 'todos-os-kits' });
+  console.log(productsKits, 'productsKits')
+  console.log(products, 'products')
   return (
     <>
       <Banner />
-      {/* <CreateCustomerPopup />  */}
+      <CreateCustomerPopup />  
       <Beneficios />
       <BannerOferta />
       <h2 className='text-3xl text-gray-800 font-bold text-center py-4' >Os Melhores Kits</h2>

@@ -3,7 +3,6 @@ import BannerBeneficios from 'components/banner-beneficios';
 import BannerKit from 'components/banner-kit';
 import BannerOferta from 'components/banner-oferta';
 import Beneficios from 'components/beneficios';
-import CreateCustomerPopup from 'components/create-customer-popup';
 import Depoimentos from 'components/depoimentos';
 import Footer from 'components/layout/footer';
 import ProductShowcase from 'components/layout/product-showcase';
@@ -25,7 +24,7 @@ export default async function HomePage() {
   return (
     <>
       <Banner />
-      <CreateCustomerPopup />  
+      {/* <CreateCustomerPopup />   */}
       <Beneficios />
       <BannerOferta />
       <h2 className='text-3xl text-gray-800 font-bold text-center py-4' >Os Melhores Kits</h2>

@@ -21,8 +21,6 @@ export default function DiscountPopup() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Aqui você pode implementar a lógica para enviar os dados do formulário
-    console.log({ email, phone })
     setOpen(false)
   }
 
